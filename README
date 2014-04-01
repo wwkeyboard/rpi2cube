@@ -1,0 +1,8 @@
+From the PI to the CUBE
+=======================
+
+Read from the Dallas One wire bus on a raspberry pi and post to cube(http://square.github.io/cube/). Right now it only supports temprature readings from (quite awesome) w1-gpio kernel module.
+
+Really, there isn't much here. Please let me know if this is in any way interesting, I've probably made more progress since pushing.
+
+- [Dave Cheney's post on getting golang on the pi](http://dave.cheney.net/tag/go-golang-raspberrypi)
