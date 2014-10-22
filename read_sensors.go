@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"os"
 	"bytes"
-  "net/http"
+        "net/http"
 	"time"
 	"github.com/wwkeyboard/rpi2cube/sensor"
 )
@@ -27,10 +27,11 @@ func main() {
 	for _,sensor := range rpi2cube.AllSensors() {
 		s := sensor.ReadSensor()
 
-	  now := time.Now().Local().Format(time.RFC3339Nano)
+	        now := time.Now().Local().Format(time.RFC3339Nano)
 
-		d := CubeMessage{"temp", now,
-              SensorMessage{s.Name, s.Temp}}
+		d := CubeMessage{"temp",
+		                now,
+                                SensorMessage{s.Name, s.Temp}}
 
 		arr_d := make([]CubeMessage, 1,1)
 		arr_d[0] = d
@@ -39,7 +40,7 @@ func main() {
 
 		_, err := http.Post("http://192.168.1.13:8180/1.0/event/put",
 			"application/json",
-      bytes.NewReader(payload))
+                        bytes.NewReader(payload))
 		if err != nil {fmt.Printf(err.Error())}
 
 		os.Stdout.Write(payload)
